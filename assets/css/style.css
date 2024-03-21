@@ -1,0 +1,58 @@
+*{
+    margin: 0px;
+    padding: 0;
+}
+
+body{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+    background-image: url("/img/fondo.jpg");
+    background-size: cover;
+    background-position: top;
+    color: rgb(255, 255, 255);
+  }
+
+.title {
+margin: 50px;
+font-family: "Fontdiner Swanky", serif;
+font-weight: 400;
+font-style: normal;
+text-shadow: 1px 1px 7px  black;
+letter-spacing: 3px;
+font-size: 32pt;
+  }
+
+.number {
+    text-shadow: 1px 1px 7px  black;
+    margin: 20px;
+    font-size: 24pt;
+    font-weight: 600;
+    
+}
+  .galeria{
+    display: flex;
+    width: 75%;
+    margin:auto;
+  }
+  img{
+    width: 100%;
+  }
+
+
+
+  .sombrero{
+    opacity: 0.5;
+    padding: 0px 50px;
+
+  }
+  .sombrero:hover{
+    opacity: 1;
+    .number{
+        text-shadow: 1px 1px 7px  rgba(224, 140, 14, 0.842);
+    }
+
+  }
