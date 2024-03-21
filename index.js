@@ -1,6 +1,6 @@
 const express = require ("express");
 const app = express();
-const PORT= 3000;
+const PORT= 3005;
 const usuarios= [
         "Juan", 
         "Jocelyn",
@@ -12,11 +12,9 @@ const usuarios= [
       ];
 
 //1. Crear un servidor con Express en el puerto 3000. (2 Puntos)
-app.listen(3000,()=>{
+app.listen(3005,()=>{
     console.log(`El servidor está inicializando en el puerto http://localhost:${PORT}`)
-    app.get("/abracadabra", (req,res)=>{
-        res.sendFile("Patas de cabra")
-    })
+
 })
 app.get('/', (req, res)=>{
     res.send('¡Bienvenido al servidor de Abracadabra!✨')
@@ -34,12 +32,17 @@ app.get('/abracadabra/usuarios', (req,res)=>{
 
 app.use("/abracadabra/juego/:usuario",(req, res, next)=>{
     const usuario = req.params.usuario;
-    if (usuarios==usuarios) {
-        res.sendFile(__dirname + '/index.html')
-    } else {
-        res.send('Usuario no existente ⚠')
-    }
-});
+    const validar = usuarios.map((u) => u.toLowerCase()).includes(usuario.toLowerCase());
+        if (validar) {
+            next()
+        }else {
+            res.sendFile(__dirname + '/assets/img/who.jpeg')
+        }
+        }) ;
+app.get("/abracadabra/juego/:usuario", (req, res)=>{
+    res.sendFile(__dirname + '/index.html')
+})
+
 
 //5. Crear una ruta /abracadabra/conejo/:n que valide si el parámetro “n” coincide con el número generado de forma aleatoria. 
 app.get("/abracadabra/conejo/:n", (req, res)=>{
